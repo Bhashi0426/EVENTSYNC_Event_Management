@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 120" fill="none">
+  <defs>
+    <linearGradient id="mainGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f78ff" />
+      <stop offset="60%" stop-color="#5c5df8" />
+      <stop offset="100%" stop-color="#b24dff" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#52c7ff" />
+      <stop offset="100%" stop-color="#9b53ff" />
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <rect x="0" y="0" width="82" height="82" rx="22" fill="url(#mainGradient)" />
+  </g>
+  <rect x="0" y="0" width="82" height="82" rx="22" fill="url(#mainGradient)" />
+  <path d="M18 22h42c6.627 0 12 5.373 12 12v10c0 6.627-5.373 12-12 12H28" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M18 34h30" stroke="white" stroke-width="6" stroke-linecap="round" />
+  <path d="M18 46h18" stroke="white" stroke-width="6" stroke-linecap="round" />
+  <path d="M18 58h24" stroke="white" stroke-width="6" stroke-linecap="round" />
+  <path d="M26 74l10 10 22-30" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+
+  <g opacity="0.95">
+    <path d="M102 20h154a16 16 0 0 1 16 16v48a16 16 0 0 1-16 16H102a16 16 0 0 1-16-16V36a16 16 0 0 1 16-16Z" fill="#eef5ff" />
+    <path d="M102 20h154a16 16 0 0 1 16 16v48a16 16 0 0 1-16 16H102a16 16 0 0 1-16-16V36a16 16 0 0 1 16-16Z" stroke="#dbe7ff" stroke-width="2" />
+    <circle cx="128" cy="32" r="7" fill="#c7d7ff" />
+    <circle cx="156" cy="32" r="7" fill="#c7d7ff" />
+    <path d="M104 44h144" stroke="#c7d7ff" stroke-width="3" stroke-linecap="round" />
+    <rect x="110" y="56" width="24" height="14" rx="6" fill="#ffffff" />
+    <rect x="146" y="56" width="24" height="14" rx="6" fill="#ffffff" />
+    <rect x="182" y="56" width="24" height="14" rx="6" fill="#ffffff" />
+    <rect x="110" y="76" width="24" height="14" rx="6" fill="#ffffff" />
+    <rect x="146" y="76" width="24" height="14" rx="6" fill="#ffffff" />
+    <rect x="182" y="76" width="24" height="14" rx="6" fill="#ffffff" />
+  </g>
+
+  <circle cx="280" cy="56" r="22" fill="url(#accentGradient)" />
+  <path d="M269 56l7 7 14-18" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+
+  <text x="104" y="40" font-family="Inter, sans-serif" font-size="38" font-weight="800" fill="#0f172a">Event</text>
+  <text x="104" y="80" font-family="Inter, sans-serif" font-size="38" font-weight="800" fill="#5c5df8">Sync</text>
+  <text x="104" y="104" font-family="Inter, sans-serif" font-size="12" fill="#64748b">Plan · Coordinate · Succeed</text>
+</svg>
