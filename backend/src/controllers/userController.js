@@ -1,6 +1,7 @@
 const userService = require('../services/userService');
 const { sendSuccess } = require('../utils/response');
 
+
 async function list(req, res, next) {
   try {
     const result = await userService.listUsers(req.query);
