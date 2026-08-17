@@ -8,6 +8,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useToast } from '../../context/ToastContext';
 import { getErrorMessage } from '../../services/api';
 
+
 export default function RegisterPage() {
   const { register, logout } = useAuth();
   const toast = useToast();
