@@ -9,6 +9,7 @@ const { rsvpRules } = require('../validators/rsvpValidator');
 
 const router = express.Router();
 
+
 // Public (personalized if authenticated)
 router.get('/', optionalAuth, eventController.list);
 router.get('/:id', optionalAuth, eventController.getOne);
