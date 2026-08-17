@@ -35,6 +35,7 @@ function buildFilter(query) {
   return filter;
 }
 
+
 async function listEvents(query = {}) {
   const filter = buildFilter(query);
 
