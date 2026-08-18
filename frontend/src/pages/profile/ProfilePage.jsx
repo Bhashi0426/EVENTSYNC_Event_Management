@@ -9,6 +9,7 @@ import userService from '../../services/userService';
 import { getErrorMessage } from '../../services/api';
 import { ROLE_LABELS } from '../../utils/constants';
 
+
 export default function ProfilePage() {
   const { user, updateUser } = useAuth();
   const toast = useToast();
