@@ -5,6 +5,7 @@ import Textarea from '../common/Textarea';
 import Button from '../common/Button';
 import { CATEGORIES, EVENT_STATUSES } from '../../utils/constants';
 
+
 /* Shared create/edit form. `initial` prefills for editing. */
 export default function EventForm({ initial = {}, onSubmit, submitting, submitLabel = 'Save', showStatus = false }) {
   const [form, setForm] = useState({
