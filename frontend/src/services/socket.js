@@ -3,6 +3,7 @@ import { SOCKET_URL } from '../config/runtimeEnv';
 
 let socket = null;
 
+
 /* Create (or reuse) the singleton socket connection. */
 export function connectSocket(token) {
   if (socket && socket.connected) return socket;
