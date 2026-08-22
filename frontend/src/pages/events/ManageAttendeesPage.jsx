@@ -151,6 +151,7 @@ export default function ManageAttendeesPage() {
   );
 }
 
+
 function StatCard({ label, value, tone }) {
   return (
     <div className="card p-4">
