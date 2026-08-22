@@ -9,6 +9,7 @@ import eventService from '../../services/eventService';
 import rsvpService from '../../services/rsvpService';
 import statsService from '../../services/statsService';
 
+
 function StatCard({ icon: Icon, label, value, tone = 'text-primary' }) {
   return (
     <div className="card p-5">
