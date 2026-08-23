@@ -14,6 +14,7 @@ import { getErrorMessage } from '../../services/api';
 import { RESPONSE_LABELS } from '../../utils/constants';
 import { formatDate } from '../../utils/format';
 
+
 const TABS = [
   { key: 'all', label: 'All' },
   { key: 'going', label: 'Going' },
