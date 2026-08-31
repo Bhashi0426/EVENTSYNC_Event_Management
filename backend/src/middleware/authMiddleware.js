@@ -27,6 +27,7 @@ async function requireAuth(req, res, next) {
       throw ApiError.unauthorized('Authentication required. Please log in.');
     }
 
+    
     let payload;
     try {
       payload = verifyToken(token);

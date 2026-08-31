@@ -5,6 +5,7 @@ beforeAll(connectTestDB);
 afterAll(closeTestDB);
 afterEach(clearTestDB);
 
+
 describe('User API', () => {
   test('admin can list users', async () => {
     const admin = await createUser({ role: 'admin', email: 'admin@test.com' });

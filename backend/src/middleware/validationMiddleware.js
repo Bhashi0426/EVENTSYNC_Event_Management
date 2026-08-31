@@ -9,6 +9,7 @@ function validate(req, res, next) {
   const result = validationResult(req);
   if (result.isEmpty()) return next();
 
+  
   const errors = {};
   for (const err of result.array()) {
     // express-validator v7 uses `path` for the field name

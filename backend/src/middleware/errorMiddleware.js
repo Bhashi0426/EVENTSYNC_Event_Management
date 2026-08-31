@@ -14,6 +14,7 @@ function errorHandler(err, req, res, next) {
   let message = err.message || 'Something went wrong.';
   const body = { success: false };
 
+  
   // Mongoose validation error
   if (err.name === 'ValidationError') {
     statusCode = 422;
