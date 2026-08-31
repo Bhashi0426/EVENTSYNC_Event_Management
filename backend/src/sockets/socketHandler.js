@@ -20,11 +20,20 @@ function initSocket(server, corsOrigin) {
   io = new Server(server, {
     cors: {
       origin: (origin, callback) => {
-        if (!origin || origin === corsOrigin || /^https?:\/\/172\.28\.0\.\d+:5173$/.test(origin) || /^https?:\/\/192\.168\.\d+\.\d+:5173$/.test(origin)) {
-          callback(null, true);
-        } else {
-          callback(new Error(`Socket.io CORS origin denied: ${origin}`));
-        }
+        // Normalize configured origin and incoming origin (strip trailing slash)
+        const norm = (u) => (typeof u === 'string' ? u.replace(/\/$/, '') : u);
+        const allowedOrigin = norm(corsOrigin);
+        const incoming = norm(origin);
+
+        // Allow if no origin (non-browser) or matches configured origin or common dev hosts
+        if (!origin) return callback(null, true);
+        if (incoming === allowedOrigin) return callback(null, true);
+        if (/^https?:\/\/172\.\d+\.\d+\.\d+:5173$/.test(incoming)) return callback(null, true);
+        if (/^https?:\/\/192\.168\.\d+\.\d+:5173$/.test(incoming)) return callback(null, true);
+        if (/^https?:\/\/localhost:5173$/.test(incoming)) return callback(null, true);
+        if (/^https?:\/\/127\.0\.0\.1:5173$/.test(incoming)) return callback(null, true);
+
+        callback(new Error(`Socket.io CORS origin denied: ${origin}`));
       },
       credentials: true,
     },

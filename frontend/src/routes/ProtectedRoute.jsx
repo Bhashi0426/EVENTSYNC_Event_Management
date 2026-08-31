@@ -2,6 +2,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Spinner from '../components/common/Spinner';
 
+
 /* Requires authentication. Optionally restricts to specific roles. */
 export default function ProtectedRoute({ children, roles }) {
   const { isAuthenticated, user, loading } = useAuth();

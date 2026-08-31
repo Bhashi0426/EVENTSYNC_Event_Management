@@ -6,6 +6,7 @@ import { useToast } from '../../context/ToastContext';
 import eventService from '../../services/eventService';
 import { getErrorMessage } from '../../services/api';
 
+
 export default function CreateEventPage() {
   const navigate = useNavigate();
   const toast = useToast();

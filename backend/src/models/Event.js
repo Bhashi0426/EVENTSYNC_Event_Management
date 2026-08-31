@@ -81,6 +81,7 @@ const eventSchema = new mongoose.Schema(
       default: 0,
       min: 0,
     },
+    
     // Optimistic concurrency control version (separate from Mongoose __v).
     version: {
       type: Number,

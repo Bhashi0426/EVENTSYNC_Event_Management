@@ -8,6 +8,7 @@ const TYPES = [
   'EVENT_CAPACITY',
 ];
 
+
 const notificationSchema = new mongoose.Schema(
   {
     user: {

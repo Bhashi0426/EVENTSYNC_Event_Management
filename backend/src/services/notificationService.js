@@ -17,6 +17,7 @@ async function createNotification({ user, type, title, message, relatedEvent = n
   return notification;
 }
 
+
 async function listForUser(userId, { unreadOnly = false, limit = 50 } = {}) {
   const filter = { user: userId };
   if (unreadOnly) filter.read = false;

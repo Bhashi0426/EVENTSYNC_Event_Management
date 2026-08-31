@@ -1,5 +1,6 @@
 import api from './api';
 
+
 export const eventService = {
   async list(params = {}) {
     const { data } = await api.get('/events', { params });
