@@ -42,6 +42,7 @@ export default function ManageAttendeesPage() {
     load();
   }, [load]);
 
+  
   // Live-refresh attendee list when RSVPs change.
   useEffect(() => {
     joinEventRoom(id);
@@ -149,6 +150,7 @@ export default function ManageAttendeesPage() {
     </div>
   );
 }
+
 
 function StatCard({ label, value, tone }) {
   return (

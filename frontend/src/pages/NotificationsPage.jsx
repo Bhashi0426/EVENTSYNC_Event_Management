@@ -5,6 +5,7 @@ import Button from '../components/common/Button';
 import { useNotifications } from '../context/NotificationContext';
 import { timeAgo } from '../utils/format';
 
+
 export default function NotificationsPage() {
   const { notifications, unread, markRead, markAllRead } = useNotifications();
 

@@ -8,6 +8,22 @@
   },
   "item": [
     {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login - Participant",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
       "name": "Event Management",
       "item": [
         {
@@ -20,6 +36,16 @@
             }
           },
           "response": []
+        }
+      ]
+    },
+    {
+      "name": "RSVP & Attendance",
+      "item": [
+        {
+          "name": "Create RSVP",
+          "request": {
+            "method": "POST",
         },
         {
           "name": "Get Event By ID",
@@ -33,6 +59,9 @@
           "response": []
         },
         {
+          "name": "Get My Event RSVP",
+          "request": {
+            "method": "GET",
           "name": "Create Event",
           "request": {
             "method": "POST",
@@ -44,6 +73,7 @@
           "response": []
         },
         {
+          "name": "Update RSVP",
           "name": "Update Event",
           "request": {
             "method": "PUT",
@@ -55,6 +85,7 @@
           "response": []
         },
         {
+          "name": "Delete RSVP",
           "name": "Delete Event",
           "request": {
             "method": "DELETE",
@@ -66,6 +97,7 @@
           "response": []
         },
         {
+          "name": "Get My RSVPs",
           "name": "Get Event Attendees",
           "request": {
             "method": "GET",
@@ -77,6 +109,7 @@
           "response": []
         },
         {
+          "name": "Get Event Attendees",
           "name": "Search Event",
           "request": {
             "method": "GET",
@@ -88,6 +121,12 @@
           "response": []
         },
         {
+          "name": "Login - Organizer",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": ""
           "name": "Filter Events",
           "request": {
             "method": "GET",
@@ -114,6 +153,15 @@
           "response": []
         }
       ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "json_web_token_0i5l",
+      "secret": true
+    }
+  ]
+}
     },
     {
       "name": "Authentication",

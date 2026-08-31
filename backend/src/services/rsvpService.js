@@ -110,6 +110,7 @@ async function cancelRSVP(eventId, user) {
   return true;
 }
 
+
 /**
  * Emit real-time updates and create notifications after an RSVP change.
  */
