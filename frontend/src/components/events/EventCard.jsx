@@ -10,7 +10,7 @@ const CATEGORY_TONES = {
   Music: 'red',
 };
 
-
+// show event rsvp 
 export default function EventCard({ event }) {
   const going = event.goingCount || 0;
   const full = going >= event.capacity;
