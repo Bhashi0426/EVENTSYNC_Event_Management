@@ -7,7 +7,7 @@ const { registerRules, loginRules } = require('../validators/authValidator');
 const env = require('../config/env');
 
 const router = express.Router();
-
+//Updated router functions
 // Rate limit auth endpoints to slow down brute-force attempts.
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
