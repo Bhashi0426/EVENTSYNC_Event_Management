@@ -1,7 +1,7 @@
 const User = require('../models/User');
 const ApiError = require('../utils/ApiError');
 const { signToken } = require('../utils/jwt');
-
+//Login method updated to support lowercase
 /**
  * Register a new user. Role is ALWAYS forced to 'participant' regardless of
  * any client input — the client is never trusted to assign roles.
