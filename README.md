@@ -1,5 +1,9 @@
 # EventSync — Real-Time Event & RSVP Management System
 
+> **Assignment 03 – Working Full Stack Application (Frontend, Backend and Database)**
+
+This version of EventSync demonstrates a complete full-stack application where the React frontend communicates with the Node.js and Express backend through REST APIs, while application data is persistently stored in MongoDB Atlas.
+
 EventSync is a full-stack, API-first application for discovering events, managing RSVPs, and keeping every attendee in sync in real time. It is built with a React frontend and a Node/Express + MongoDB backend, with Socket.io for live updates, JWT authentication, role-based access control, optimistic concurrency, atomic capacity handling, and offline persistence.
 
 > **JavaScript only.** No TypeScript is used anywhere in this project.
@@ -25,7 +29,6 @@ EventSync is a full-stack, API-first application for discovering events, managin
 - [CI/CD](#cicd)
 - [API Documentation](#api-documentation)
 - [Key Engineering Details](#key-engineering-details)
-
 ---
 
 ## Features
@@ -168,7 +171,7 @@ Open http://localhost:5173 and sign in with a demo account.
 | ---------------- | ---------------------------------------- | ------------------------------------ |
 | `PORT`           | API port                                 | `5050`                               |
 | `NODE_ENV`       | `development` / `production` / `test`    | `development`                        |
-| `MONGO_URI`      | MongoDB connection string (local/Atlas)  | `mongodb://localhost:27017/eventsync`|
+| `MONGO_URI`      | MongoDB Atlas connection string used by the backend  | Set in `backend/.env`|
 | `JWT_SECRET`     | Secret used to sign JWTs                  | *(set your own)*                     |
 | `JWT_EXPIRES_IN` | Token lifetime                            | `7d`                                 |
 | `CLIENT_URL`     | Allowed CORS / Socket.io origin           | `http://localhost:5173`              |
@@ -186,6 +189,36 @@ Open http://localhost:5173 and sign in with a demo account.
 ---
 
 ## Database Seeding
+
+## MongoDB Atlas Database
+
+EventSync uses **MongoDB Atlas** as the cloud database for the full-stack application.
+
+The backend connects to MongoDB Atlas through Mongoose using the MongoDB connection string stored securely in the backend `.env` file.
+
+### Database Configuration
+
+The MongoDB Atlas database is used to provide persistent storage for the EventSync application. The database stores application data that is created and managed through the frontend and backend APIs.
+
+The main collections include:
+
+- Users
+- Events
+- RSVPs
+- Notifications
+
+### Full-Stack Data Flow
+
+```text
+React Frontend
+      ↓
+REST API Requests
+      ↓
+Node.js + Express Backend
+      ↓
+Mongoose
+      ↓
+MongoDB Atlas
 
 ```bash
 cd backend
@@ -265,6 +298,52 @@ Override secrets via environment variables (e.g. `JWT_SECRET`, `VITE_API_URL`) o
 No secrets are committed; CI uses environment variables / GitHub Actions secrets.
 
 ---
+## Assignment 03 Submission
+
+This project was completed for:
+
+**Assignment 03 – Working Full Stack Application (Frontend, Backend and Database)**
+
+The Assignment 03 version includes:
+
+- A working React frontend
+- A Node.js and Express backend
+- REST API integration
+- MongoDB Atlas cloud database integration
+- Persistent application data
+- API testing using Postman
+- Authentication and role-based access control
+- Automated backend testing
+- GitHub version control and team contributions
+
+### Assignment 03 Git Tag
+
+The final version submitted for Assignment 03 is identified using the following Git tag:
+## Assignment 03 Submission
+
+This project was completed for:
+
+**Assignment 03 – Working Full Stack Application (Frontend, Backend and Database)**
+
+The Assignment 03 version includes:
+
+- A working React frontend
+- A Node.js and Express backend
+- REST API integration
+- MongoDB Atlas cloud database integration
+- Persistent application data
+- API testing using Postman
+- Authentication and role-based access control
+- Automated backend testing
+- GitHub version control and team contributions
+
+### Assignment 03 Git Tag
+
+The final version submitted for Assignment 03 is identified using the following Git tag:
+
+```text
+Assignment-03-Working-Full-Stack
+```
 
 ## API Documentation
 
@@ -351,6 +430,42 @@ All routes are prefixed with `/api`. Responses follow a consistent envelope:
 - **Ownership** — Organizers can only modify their own events; the server verifies `event.organizer === req.user.id` (admins bypass). Client-supplied roles/organizer IDs are never trusted.
 
 ---
+
+## Team Members
+### Member 1 – bhashi0426- Event Management
+
+Responsible for:
+
+- Event CRUD operations
+- Event search and filtering
+- Event details
+- Event capacity management
+- My Events
+- Create Event
+- Edit Event
+- Delete Event
+
+### Member 2 – tharushidew2004 - RSVP and Attendance Management
+
+Responsible for:
+
+- RSVP management
+- My RSVPs
+- Attendee management
+- RSVP-related API integration
+- Attendance-related functionality
+
+### Member 3 – ItsTharu - User and Role Management
+
+Responsible for:
+
+- User registration
+- Login and authentication
+- User profile management
+- Role management
+- User status management
+- Admin user management
+
 
 ## Development Commands
 
