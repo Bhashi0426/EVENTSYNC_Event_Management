@@ -4,7 +4,7 @@ const env = require('./config/env');
 const logger = require('./utils/logger');
 const { connectDB } = require('./config/database');
 const { initSocket } = require('./sockets/socketHandler');
-
+//updated API running on port
 async function start() {
   try {
     await connectDB();
