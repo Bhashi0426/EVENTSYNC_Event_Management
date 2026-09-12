@@ -28,6 +28,15 @@ async function connectDB(uri = env.MONGO_URI) {
     return conn;
   } catch (error) {
     logger.error(`MongoDB connection error: ${error.message}`);
+    if (
+      typeof uri === 'string' &&
+      uri.startsWith('mongodb+srv://') &&
+      /not whitelist|whitelist|access list|IP address/i.test(error.message)
+    ) {
+      logger.error(
+        'MongoDB Atlas rejected this machine. Add its public IP to Atlas Network Access, or use the local Docker database with `docker compose up --build`.'
+      );
+    }
     throw error;
   }
 }
