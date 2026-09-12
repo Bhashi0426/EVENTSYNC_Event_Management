@@ -172,7 +172,7 @@ Open http://localhost:5173 and sign in with a demo account.
 | `PORT`           | API port                                 | `5050`                               |
 | `NODE_ENV`       | `development` / `production` / `test`    | `development`                        |
 | `MONGO_URI`      | MongoDB Atlas connection string used by the backend  | Set in `backend/.env`|
-| `JWT_SECRET`     | Secret used to sign JWTs                  | *(set your own)*                     |
+| `JWT_SECRET`     | Secret used to sign JWTs                  |                    |
 | `JWT_EXPIRES_IN` | Token lifetime                            | `7d`                                 |
 | `CLIENT_URL`     | Allowed CORS / Socket.io origin           | `http://localhost:5173`              |
 | `DEMO_PASSWORD`  | Password used by the seeder               | `Password123!`                       |
