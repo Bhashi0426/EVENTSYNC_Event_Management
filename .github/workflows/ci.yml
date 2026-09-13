@@ -1,6 +1,6 @@
 #.github/workflows/ci.yml
 name: EventSync CI Pipeline
-
+//github
 on:
   push:
     branches:
