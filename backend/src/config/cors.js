@@ -1,5 +1,5 @@
 const env = require('./env');
-
+//running inside a VM
 const ALLOWED_ORIGINS = [
   env.CLIENT_URL && env.CLIENT_URL.replace(/\/$/, ''),
   'http://localhost:5173',
