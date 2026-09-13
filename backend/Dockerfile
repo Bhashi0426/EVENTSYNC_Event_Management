@@ -1,6 +1,5 @@
 # EventSync Backend
 FROM node:20-alpine
-//EventSync Backend
 WORKDIR /app
 
 # Install dependencies first (better layer caching)
