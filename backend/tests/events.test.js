@@ -1,6 +1,6 @@
 const { connectTestDB, closeTestDB, clearTestDB } = require('./setup');
 const { app, request, createUser, authHeader, createEvent } = require('./helpers');
-
+//New tech event
 beforeAll(connectTestDB);
 afterAll(closeTestDB);
 afterEach(clearTestDB);
