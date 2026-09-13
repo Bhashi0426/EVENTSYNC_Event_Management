@@ -1,5 +1,6 @@
 const logger = require('../utils/logger');
 const { verifyToken } = require('../utils/jwt');
+const { isAllowedOrigin } = require('../config/cors');
 
 let io = null;
 
@@ -20,20 +21,7 @@ function initSocket(server, corsOrigin) {
   io = new Server(server, {
     cors: {
       origin: (origin, callback) => {
-        // Normalize configured origin and incoming origin (strip trailing slash)
-        const norm = (u) => (typeof u === 'string' ? u.replace(/\/$/, '') : u);
-        const allowedOrigin = norm(corsOrigin);
-        const incoming = norm(origin);
-
-        // Allow if no origin (non-browser) or matches configured origin or common dev hosts
-        if (!origin) return callback(null, true);
-        if (incoming === allowedOrigin) return callback(null, true);
-        if (/^https?:\/\/172\.\d+\.\d+\.\d+:5173$/.test(incoming)) return callback(null, true);
-        if (/^https?:\/\/192\.168\.\d+\.\d+:5173$/.test(incoming)) return callback(null, true);
-        if (/^https?:\/\/localhost:5173$/.test(incoming)) return callback(null, true);
-        if (/^https?:\/\/127\.0\.0\.1:5173$/.test(incoming)) return callback(null, true);
-
-        callback(new Error(`Socket.io CORS origin denied: ${origin}`));
+        callback(null, isAllowedOrigin(origin));
       },
       credentials: true,
     },
