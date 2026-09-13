@@ -21,19 +21,25 @@ const app = express();
 
 // Security & parsing
 app.use(helmet());
+
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (isAllowedOrigin(origin)) {
+      // Allow requests with no origin or allowed origins without throwing errors
+      if (!origin || isAllowedOrigin(origin)) {
         callback(null, true);
       } else {
-        callback(new Error(`CORS origin denied: ${origin}`));
+        // Return false instead of throwing a new Error object
+        callback(null, false);
       }
     },
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   })
 );
 
+// Explicitly handle preflight requests
 app.options('*', cors());
 
 app.use(express.json({ limit: '1mb' }));
