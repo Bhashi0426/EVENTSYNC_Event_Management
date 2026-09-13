@@ -26,6 +26,11 @@ function isAllowedOrigin(origin) {
     return true;
   }
 
+  // Allow preview deployments for this Vercel project only.
+  if (/^https:\/\/eventsync-event-management(?:-[a-z0-9-]+)?\.vercel\.app$/.test(normalizedOrigin)) {
+    return true;
+  }
+
   // Allow local network IPs
   if (/^https?:\/\/(10|172|192|\.168)\.\d+\.\d+:\d+$/.test(normalizedOrigin)) {
     return true;
