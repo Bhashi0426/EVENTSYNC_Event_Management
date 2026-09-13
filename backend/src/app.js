@@ -21,22 +21,13 @@ const app = express();
 
 // Security & parsing
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      // Allow requests with no origin or allowed origins without throwing errors
-      if (!origin || isAllowedOrigin(origin)) {
-        callback(null, true);
-      } else {
-        // Return false instead of throwing a new Error object
-        callback(null, false);
-      }
-    },
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+app.use(cors({
+  origin: ['https://eventsync-event-management.vercel.app', 'http://localhost:3000'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
+}));
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-  })
-);
+
 
 // Explicitly handle preflight requests
 app.options('*', cors());
@@ -49,6 +40,15 @@ app.use(cookieParser());
 if (env.NODE_ENV !== 'development') {
   app.use(morgan('dev'));
   }
+
+  // Middleware to set headers manually (optional but safe)
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://eventsync-event-management.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
 // Global, lenient rate limit (auth routes add a stricter one)
 app.use(
   '/api',
