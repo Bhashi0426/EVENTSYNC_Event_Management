@@ -1,20 +1,35 @@
 const env = require('./env');
 //running inside a VM
 const ALLOWED_ORIGINS = [
-  env.CLIENT_URL && env.CLIENT_URL.replace(/\/$/, ''),
   'http://localhost:5173',
-  'http://127.0.0.1:5173',
   'http://localhost:5174',
+  'http://127.0.0.1:5173',
   'http://127.0.0.1:5174',
+  'https://eventsync-event-management.vercel.app'
 ];
 
+if (env && env.CLIENT_URL) {
+  const cleanUrl = String(env.CLIENT_URL).trim().replace(/\/$/, '');
+  if (cleanUrl && !ALLOWED_ORIGINS.includes(cleanUrl)) {
+    ALLOWED_ORIGINS.push(cleanUrl);
+  }
+}
+
 function isAllowedOrigin(origin) {
+  // Allow requests with no origin (like Postman, mobile apps, curl)
   if (!origin) return true;
-  const normalizedOrigin = origin.replace(/\/$/, '');
-  if (ALLOWED_ORIGINS.includes(normalizedOrigin)) return true;
-  // Allow other common local network ranges for the dev frontend (e.g. Vite
-  // running inside a VM/container may expose a private-network IP).
-  if (/^https?:\/\/(10|172|192\.168)\.\d+\.\d+\.\d+:517[34]$/.test(normalizedOrigin)) return true;
+  
+  const normalizedOrigin = String(origin).trim().replace(/\/$/, '');
+  
+  if (ALLOWED_ORIGINS.includes(normalizedOrigin)) {
+    return true;
+  }
+
+  // Allow local network IPs
+  if (/^https?:\/\/(10|172|192|\.168)\.\d+\.\d+:\d+$/.test(normalizedOrigin)) {
+    return true;
+  }
+
   return false;
 }
 

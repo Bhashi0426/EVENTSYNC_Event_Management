@@ -20,28 +20,36 @@ const statsRoutes = require('./routes/statsRoutes');
 const app = express();
 //Updated with new fast code logics.
 // Security & parsing
+
+app.use(cors({
+  origin: ['https://eventsync-event-management.vercel.app', 'http://localhost:3000'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
+}));
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+
+
+// Explicitly handle preflight requests
+app.options('*', cors());
+
 app.use(helmet());
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (isAllowedOrigin(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error(`CORS origin denied: ${origin}`));
-      }
-    },
-    credentials: true,
-  })
-);
-app.use(express.json({ limit: '1mb' }));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-if (env.NODE_ENV !== 'test') {
+if (env.NODE_ENV !== 'development') {
   app.use(morgan('dev'));
-}
+  }
 
-// Global, lenient rate limit (auth routes add a stricter one).
+  // Middleware to set headers manually (optional but safe)
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://eventsync-event-management.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
+// Global, lenient rate limit (auth routes add a stricter one)
 app.use(
   '/api',
   rateLimit({
@@ -62,6 +70,11 @@ app.use('/api/events', eventRoutes);
 app.use('/api/me', rsvpRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/stats', statsRoutes);
+
+// Root route check
+app.get('/', (req, res) => {
+  sendSuccess(res, { status: 'healthy', timestamp: new Date() }, 'EventSync API is running');
+});
 
 // 404 + error handling
 app.use(notFound);
