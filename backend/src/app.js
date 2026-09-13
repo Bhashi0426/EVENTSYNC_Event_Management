@@ -20,7 +20,6 @@ const statsRoutes = require('./routes/statsRoutes');
 const app = express();
 
 // Security & parsing
-app.use(helmet());
 
 app.use(
   cors({
@@ -42,15 +41,15 @@ app.use(
 // Explicitly handle preflight requests
 app.options('*', cors());
 
-app.use(express.json({ limit: '1mb' }));
+app.use(helmet());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-if (env.NODE_ENV !== 'test') {
+if (env.NODE_ENV !== 'development') {
   app.use(morgan('dev'));
-}
-
-// Global, lenient rate limit (auth routes add a stricter one).
+  }
+// Global, lenient rate limit (auth routes add a stricter one)
 app.use(
   '/api',
   rateLimit({
@@ -71,6 +70,11 @@ app.use('/api/events', eventRoutes);
 app.use('/api/me', rsvpRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/stats', statsRoutes);
+
+// Root route check
+app.get('/', (req, res) => {
+  sendSuccess(res, { status: 'healthy', timestamp: new Date() }, 'EventSync API is running');
+});
 
 // 404 + error handling
 app.use(notFound);
