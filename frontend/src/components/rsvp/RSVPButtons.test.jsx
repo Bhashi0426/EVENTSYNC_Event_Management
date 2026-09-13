@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import RSVPButtons from './RSVPButtons';
 
+
 describe('RSVPButtons', () => {
   test('renders all three response options', () => {
     render(<RSVPButtons value={null} onSelect={() => {}} />);

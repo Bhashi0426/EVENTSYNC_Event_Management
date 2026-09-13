@@ -18,7 +18,7 @@ const notificationRoutes = require('./routes/notificationRoutes');
 const statsRoutes = require('./routes/statsRoutes');
 
 const app = express();
-
+//Updated with new fast code logics.
 // Security & parsing
 
 app.use(cors({

@@ -23,6 +23,7 @@ const rsvpSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+
 // A user may hold only one RSVP per event.
 rsvpSchema.index({ event: 1, user: 1 }, { unique: true });
 

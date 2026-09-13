@@ -24,13 +24,6 @@
                 }
               }
             },
-      "name": "Event Management",
-      "item": [
-        {
-          "name": "Get All Events",
-          "request": {
-            "method": "GET",
-            "header": [],
             "url": {
               "raw": ""
             }
@@ -40,29 +33,10 @@
       ]
     },
     {
-      "name": "RSVP & Attendance",
+      "name": "User & Role Management",
       "item": [
         {
-          "name": "Create RSVP",
-          "request": {
-            "method": "POST",
-        },
-        {
-          "name": "Get Event By ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": ""
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get My Event RSVP",
-          "request": {
-            "method": "GET",
-          "name": "Create Event",
+          "name": "Register API",
           "request": {
             "method": "POST",
             "header": [],
@@ -73,8 +47,48 @@
           "response": []
         },
         {
-          "name": "Update RSVP",
-          "name": "Update Event",
+          "name": "Login API",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"testuser123@eventsync.com\",\r\n  \"password\": \"Password123!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5050/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5050",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Current User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Profile",
           "request": {
             "method": "PUT",
             "header": [],
@@ -85,20 +99,7 @@
           "response": []
         },
         {
-          "name": "Delete RSVP",
-          "name": "Delete Event",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": ""
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get My RSVPs",
-          "name": "Get Event Attendees",
+          "name": "User By ID",
           "request": {
             "method": "GET",
             "header": [],
@@ -109,45 +110,89 @@
           "response": []
         },
         {
-          "name": "Get Event Attendees",
-          "name": "Search Event",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": ""
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Login - Organizer",
+          "name": "Admin Login",
           "request": {
             "method": "POST",
             "header": [],
             "url": {
               "raw": ""
-          "name": "Filter Events",
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Users",
           "request": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5050/api/events?sort=date_asc",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "5050",
-              "path": [
-                "api",
-                "events"
-              ],
-              "query": [
-                {
-                  "key": "sort",
-                  "value": "date_asc"
-                }
-              ]
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change User Role",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Disable User",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Enable User Again",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Unauthorized test",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
             }
           },
           "response": []
@@ -159,35 +204,10 @@
     {
       "key": "json_web_token_0i5l",
       "secret": true
-    }
-  ]
-}
     },
     {
-      "name": "Authentication",
-      "item": [
-        {
-          "name": "Login - Participant",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-           "url": {
-              "raw": ""
-            }
-          },
-          "response": []
-        }
-      ]
+      "key": "supabase_service_role_api_key_0rqu",
+      "secret": true
     }
   ]
 }
-    
