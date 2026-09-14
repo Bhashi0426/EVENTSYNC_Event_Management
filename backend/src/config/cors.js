@@ -31,8 +31,8 @@ function isAllowedOrigin(origin) {
     return true;
   }
 
-  // Allow local network IPs
-  if (/^https?:\/\/(10|172|192|\.168)\.\d+\.\d+:\d+$/.test(normalizedOrigin)) {
+  // Allow local network IPs (e.g. http://192.168.1.15:5173 when testing from another device on the LAN)
+  if (/^https?:\/\/(?:10\.\d+\.\d+\.\d+|172\.(?:1[6-9]|2\d|3[01])\.\d+\.\d+|192\.168\.\d+\.\d+)(?::\d+)?$/.test(normalizedOrigin)) {
     return true;
   }
 
